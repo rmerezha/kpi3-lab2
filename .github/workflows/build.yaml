@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-22.04
     container: golang:1.23.7
     steps:
-      - run: ls
-      - run: pwd
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: go mod download
       - name: Build
@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-22.04
     container: golang:1.23.7
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Install dependencies
         run: go mod download
       - name: Run tests
