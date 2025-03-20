@@ -10,20 +10,18 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
+    container: golang:1.23.7
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-
       - name: Install dependencies
         run: go mod download
-
       - name: Build
         run: make
-
+  test:
+    runs-on: ubuntu-22.04
+    container: golang:1.23.7
+    steps:
+      - name: Install dependencies
+        run: go mod download
       - name: Run tests
         run: make test
