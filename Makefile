@@ -8,4 +8,4 @@ test: *.go
 
 out/example: implementation.go cmd/example/main.go
 	mkdir -p out
-	go build -o out/example ./cmd/example
+	go build -buildvcs=false -o out/example ./cmd/example
