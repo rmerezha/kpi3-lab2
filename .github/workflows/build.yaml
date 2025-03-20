@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         run: go mod download
       - name: Build
-        run: make
+        run: make BUILD_FLAGS="-buildvcs=false"
   test:
     runs-on: ubuntu-22.04
     container: golang:1.23.7
