@@ -7,37 +7,37 @@ import (
 
 func TestComputeHandler_Compute(t *testing.T) {
 	testCases := []struct {
-		name          string
-		input         string
+		name           string
+		input          string
 		expectedOutput string
-		expectedError bool
+		expectedError  bool
 	}{
-			{
-				name:          "Valid Expression",
-				input:         "+ 2 2\n",
-				expectedOutput: "2 + 2",
-				expectedError:   false,
-			},
 		{
-			name:          "Valid Expression 2",
-			input:         "+ 5 * + 4 2 ^ 3 2\n",
+			name:           "Valid Expression",
+			input:          "+ 2 2\n",
+			expectedOutput: "2 + 2",
+			expectedError:  false,
+		},
+		{
+			name:           "Valid Expression 2",
+			input:          "+ 5 * + 4 2 ^ 3 2\n",
 			expectedOutput: "5 + (4 + 2) * (3 ^ 2)",
-			expectedError:   false,
+			expectedError:  false,
 		},
 		{
 			name:          "Invalid Expression",
 			input:         "foo bar\n",
-			expectedError:   true,
+			expectedError: true,
 		},
 		{
 			name:          "Empty Expression",
 			input:         "",
-			expectedError:   true,
+			expectedError: true,
 		},
 		{
 			name:          "Incomplete Expression",
 			input:         "+ 5\n",
-			expectedError:   true,
+			expectedError: true,
 		},
 	}
 
